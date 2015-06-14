@@ -1,0 +1,30 @@
+{
+  "development": {
+    "grant": {
+      "server": {
+        "protocol": "https",
+        "host": "23369b4a.ngrok.com",
+        "callback": "/callback",
+        "transport": "session"
+      },
+      "fitbit": {
+        "key": "FROM ENVIRONMENT",
+        "secret": "FROM_ENVIRONMENT"
+      }
+    }
+  },
+  "production": {
+    "grant": {
+      "server": {
+        "protocol": "https",
+        "host": "fitbit-dashboard.herokuapp.com",
+        "callback": "/callback",
+        "transport": "session"
+      },
+      "fitbit": {
+        "key": "c2b4f5f168db70f2af9d22513713d2e0",
+        "secret": "ebb8ede64b819c1ec530bf0ba600a465"
+      }
+    }
+  }
+}
