@@ -15,13 +15,18 @@ var fitbit = new Purest({
   secret: config.grant.fitbit.secret
 });
 
-/* GET root page. */
+// GET index page
 router.get('/', function(req, res) {
   res.render('index');
 });
 
-/* GET root page. */
+// Redirect to index page after authentication
 router.get('/callback', function(req, res) {
+  res.redirect('/');
+});
+
+// GET user profile page
+router.get('/profile', function(req, res) {
   fitbit
     .query()
     .get('user/-/profile')

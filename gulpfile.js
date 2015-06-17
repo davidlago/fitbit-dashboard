@@ -19,14 +19,14 @@ gulp.task('sass', function() {
 
 // Task to lint the code
 gulp.task('lint', function() {
-  return gulp.src(['./routes/*.js', './*.js'])
+  return gulp.src(['./routes/*.js', './*.js', './lib/auth/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter(require('jshint-stylish-ex')));
 });
 
 // Task to check that coding style guidelines are met
 gulp.task('style', function() {
-  return gulp.src(['./routes/*.js', './*.js'])
+  return gulp.src(['./routes/*.js', './*.js', './lib/auth/*.js'])
     .pipe(jscs());
 });
 
@@ -40,6 +40,7 @@ gulp.task('js-watch', function() {
   server.listen({path: 'bin/www'});
   gulp.watch('./routes/*.js', ['server-restart', 'lint', 'style']);
   gulp.watch('./*.js', ['server-restart', 'lint', 'style']);
+  gulp.watch('./lib/auth/*.js', ['server-restart', 'lint', 'style']);
   gulp.watch('./bin/www', ['server-restart']);
 });
 

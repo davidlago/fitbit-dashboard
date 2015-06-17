@@ -5,6 +5,7 @@ var favicon      = require('static-favicon');
 var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
+var auth         = require('./lib/auth');
 
 // Read config file based on environment
 var config = require('./config.json')[process.env.NODE_ENV || 'development'];
@@ -32,6 +33,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'grant'}));
 app.use(grant);
+app.use(auth);
 
 app.use('/', routes);
 
